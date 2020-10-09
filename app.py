@@ -21,8 +21,8 @@ mysql = MySQL()
 
 
 #Payments configuration
-pub_key = 'pk_test_qWd1krxg65UlYPKm2RZpvOqh000R1Zb1qr'
-secret_key = 'sk_test_OgUzTBPd1RJydSF4TLkWlZ8A001cbWidEo'
+pub_key = os.environ.get("payment_pubKey")
+secret_key = os.environ.get("payment_secretKey")
 stripe.api_key = secret_key
 
 #Uploading configuration
