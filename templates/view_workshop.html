@@ -1,0 +1,49 @@
+{% extends 'layout.html' %}
+{% block body %}
+
+<!-- Page Content -->
+
+<div class="container">
+    <div class="row">
+
+        <!-- /.col-lg-3 -->
+        <div class="col-lg-9">
+            <div class="row">
+                {% for x in workshops %}
+                <div class="col-lg-6">
+                    <div class="card mt-4">
+                        <img class="card-img-top img-fluid"
+                             src="static/image/workshops/{{x.Location}}/{{x.picture}}" alt="">
+                    </div>
+                </div>
+                <!-- /.card -->
+                <div class="col-lg-6">
+                    <div class="card card-outline-secondary my-4">
+                        <div class="card-header">
+                            Workshop Details
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title"> Name : {{ x.workshop}}</h3>
+                            <h4>Entree fee : {{ x.price}}</h4>
+                            <h4>Location : {{ x.Location}}</h4>
+                            <h4>Date : {{ x.date}}</h4>
+                            <h3>Description:</h3><h4 class="card-text">{{ x.description}}</h4>
+                            <a href="/workshop?join={{x.id}}" class="btn btn-success">Join Workshop</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                <!-- /.card -->
+
+            </div>
+
+        </div>
+        <!-- /.col-lg-9 -->
+
+
+    </div>
+    <!-- /.row -->
+
+</div>
+<!-- /.container -->
+{% endblock %}

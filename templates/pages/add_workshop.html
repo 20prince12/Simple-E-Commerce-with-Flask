@@ -1,0 +1,70 @@
+{% extends 'pages/layout.html' %}
+{% block body %}
+<div id="page-wrapper">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Add Workshop</h1>
+
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <form role="form" enctype=multipart/form-data class="" action="/admin_add_workshop"
+                                  method="post">
+                                <div class="form-group">
+                                    <label>Workshop Name</label>
+                                    <input class="form-control" required="required" name="name" placeholder="Enter name">
+                                </div>
+                                <div class="form-group">
+                                    <label>Entry Fee</label>
+                                    <input class="form-control" required="required" name="price" placeholder="Enter price">
+                                </div>
+                                <div class="form-group">
+                                    <label>Description</label>
+                                    <textarea class="form-control" required="required" name="description" rows="3"
+                                              placeholder="Write product description"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>Total Seats</label>
+                                    <input class="form-control" required="required" name="available" placeholder="Available">
+                                </div>
+                                <div class="form-group">
+                                    <label>Location</label>
+                                    <select class="form-control" id="category_id" onchange="populateList();"
+                                            name="location">
+                                        <option value="hyderabad">hyderabad</option>
+                                        <option value="bangalore">bangalore</option>
+                                        <option value="mumbai">mumbai</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Category</label>
+                                    <input class="form-control" required="required" name="category" placeholder="Type...">
+                                </div>
+                                <div class="form-group">
+                                    <label>Add Image</label>
+                                    <input type="file" required="required" name="picture">
+                                </div>
+                                <button type="submit" class="btn btn-default">Submit Button</button>
+                            </form>
+                        </div>
+                        <!-- /.col-lg-6 (nested) -->
+                    </div>
+                    <!-- /.row (nested) -->
+                </div>
+                <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+</div>
+<!-- /#page-wrapper -->
+{% endblock %}

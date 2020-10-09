@@ -1,0 +1,60 @@
+{% extends 'pages/layout.html' %}
+
+{% block body %}
+
+    <!-- /.row -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default my-4">
+                <div class="panel-heading">
+                    <i class="fa fa-bar-chart-o fa-fw"></i>All Participants
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            {% if result %}
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover table-striped">
+                                    <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>User Id</th>
+                                        <th>Name</th>
+                                        <th>Workshop Id</th>
+                                        <th>Quantity</th>
+                                        <th>Mobile</th>
+                                        <th>Registered Date</th>
+
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for product in result %}
+                                    <tr>
+                                        <td>{{product.id}}</td>
+                                        <td>{{product.uid}}</td>
+                                        <td>{{product.uname}}</td>
+                                        <td>{{product.wid}}</td>
+                                        <td>{{product.quantity}}</td>
+                                        <td>{{product.mobile}}</td>
+                                        <td>{{product.date}}</td>
+                                    </tr>
+                                    {% endfor%}
+                                    </tbody>
+                                </table>
+                            </div>
+                            {% else %}
+                            <h3>No Participants found</h3>
+                            {% endif %}
+                            <!-- /.table-responsive -->
+                        </div>
+                    </div>
+                    <!-- /.row -->
+                </div>
+                <!-- /.panel-body -->
+            </div>
+        </div>
+    </div>
+    <!-- /.row -->
+</div>
+{% endblock %}

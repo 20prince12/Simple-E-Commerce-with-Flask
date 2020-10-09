@@ -1,0 +1,59 @@
+{% extends 'layout.html' %}
+{% block body %}
+<!-- Page Content -->
+<div class="container">
+    <div class="row">
+
+        <!-- /.col-lg-3 -->
+        <div class="col-lg-9">
+            <div class="row">
+                {% for x in workshops %}
+                <div class="col-lg-6">
+                    <div class="card mt-4">
+                        <img class="card-img-top img-fluid"
+                             src="static/image/workshops/{{x.Location}}/{{x.picture}}" alt="">
+                    </div>
+                </div>
+                <!-- /.card -->
+                <div class="col-lg-6">
+                    <div class="card card-outline-secondary my-4">
+                        <div class="card-header">
+                            Fill Your Details
+                        </div>
+                        <div class="card-body">
+                            {% from "includes/_formhelpers.html" import render_field %}
+                            <form method="POST" action="/workshop?join={{x.id}}">
+                                <div class="form-group">
+                                    {{render_field(form.name, class_="form-control")}}
+                                </div>
+                                <div class="form-group">
+                                    {{render_field(form.mobile_num, class_="form-control")}}
+                                </div>
+
+                                <div class="form-group">
+                                    {{render_field(form.quantity, class_="form-control")}}
+                                </div>
+                                 <div class="form-group">
+                                    {{render_field(form.order_place, class_="form-control")}}
+                                </div>
+                                <button type="submit" class="btn btn-success">Join</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                <!-- /.card -->
+
+            </div>
+             <!--
+            -->
+        </div>
+        <!-- /.col-lg-9 -->
+
+
+    </div>
+    <!-- /.row -->
+
+</div>
+<!-- /.container -->
+{% endblock %}

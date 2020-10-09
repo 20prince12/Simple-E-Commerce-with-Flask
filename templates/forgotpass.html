@@ -1,0 +1,96 @@
+{% extends 'layout.html' %}
+{% block body %}
+    {% include 'includes/_flashmsg.html' %}
+    <div style="background-color: #999999;">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+         <link rel="stylesheet" href="{{ url_for('static', filename='css/main2.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="login100-more" style="background-image: url('static/image/bg-01.jpg');"></div>
+
+			<div class="wrap-login100 p-l-50 p-r-50 p-t-72 p-b-50">
+
+                 {% if session.reset %}
+
+                    <form class="login100-form validate-form" method="POST" action="/forgotpass">
+					<span class="login100-form-title p-b-59">
+						Enter new Password
+					</span>
+
+					<div class="wrap-input100 validate-input" data-validate="Number is required">
+						<span class="label-input100">New Password</span>
+						<input class="input100" type="password" name="newpass" placeholder="Enter new password...">
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="container-login100-form-btn">
+						<div class="wrap-login100-form-btn">
+							<div class="login100-form-bgbtn"></div>
+							<button class="login100-form-btn">
+								 Change
+							</button>
+						</div>
+					</div>
+				</form>
+
+
+                {% elif session.code %}
+
+                    <form class="login100-form validate-form" method="GET" action="/forgotpass">
+					<span class="login100-form-title p-b-59">
+						Enter OTP
+					</span>
+					<div class="wrap-input100 validate-input" data-validate="Number is required">
+						<span class="label-input100">OTP</span>
+						<input class="input100" type="text" name="otp" placeholder="Enter OTP...">
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="container-login100-form-btn">
+						<div class="wrap-login100-form-btn">
+							<div class="login100-form-bgbtn"></div>
+							<button class="login100-form-btn">
+								 Verify
+							</button>
+						</div>
+					</div>
+				</form>
+
+                {% else %}
+
+                    <form class="login100-form validate-form" method="POST" action="/forgotpass">
+					<span class="login100-form-title p-b-59">
+						Forgot Password
+					</span>
+
+					<div class="wrap-input100 validate-input" data-validate="Number is required">
+						<span class="label-input100">Number</span>
+						<input class="input100" type="text" name="mobile" placeholder="Enter Number...">
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="container-login100-form-btn">
+						<div class="wrap-login100-form-btn">
+							<div class="login100-form-bgbtn"></div>
+							<button class="login100-form-btn">
+								 send
+							</button>
+						</div>
+					</div>
+				</form>
+
+                {% endif %}
+
+
+			</div>
+		</div>
+	</div>
+    </div>
+<!--===============================================================================================-->
+
+ <script type="text/javascript" src="{{ url_for('static', filename='vendor/countdowntime/countdowntime.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/main2.js') }}"></script>
+{% endblock %}
