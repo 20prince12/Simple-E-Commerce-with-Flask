@@ -20,3 +20,4 @@ stripe==2.54.0
 urllib3==1.25.10
 Werkzeug==0.16.0
 WTForms==2.3.3
+gunicorn==20.1.0
